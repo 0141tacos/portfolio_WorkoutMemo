@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block content %}
+    <head>
+        <meta charset="UTF-8">
+        <title>{{ workday }}</title>
+        <style>
+        table{
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td{
+            width: 14.28%;
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th{
+            background-color: aquamarine;
+        }
+        </style>
+    </head>
+    <body>
+        <h1>筋トレメニュー</h1>
+        <form method="POST">
+            <table>
+                <thead>
+                    <tr>
+                        <th>日付</th>
+                        <th>種目</th>
+                        <th>重量</th>
+                        <th>回数</th>
+                        <th>セット数</th>
+                        <th>メモ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="date" name="date"></td>
+                        <td><input type="text" name="menu"></td>
+                        <td><input type="text" name="weight"></td>
+                        <td><input type="text" name="reps"></td>
+                        <td><input type="text" name="sets"></td>
+                        <td><input type="text" name="note"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <input type="submit" value="登録">
+        </form>
+    </body>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block content %}
+    <head>
+        <meta charset="UTF-8">
+        <title>{{ workday }}</title>
+        <a href="/create" role="button">新規作成</a>
+        <a href="/" role="button">ホーム</a>
+        <style>
+        table{
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td{
+            width: 14.28%;
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th{
+            background-color: aquamarine;
+        }
+        </style>
+    </head>
+    <body>
+        <h1>筋トレメニュー</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>日付</th>
+                    <th>種目</th>
+                    <th>重量</th>
+                    <th>回数</th>
+                    <th>セット数</th>
+                    <th>メモ</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for memo in memos %}
+                    {% if memo.date == workday %}
+                    <tr>
+                        <td>{{ memo.date }}</td>
+                        <td>{{ memo.menu }}</td>
+                        <td>{{ memo.weight }}</td>
+                        <td>{{ memo.reps }}</td>
+                        <td>{{ memo.sets }}</td>
+                        <td>{{ memo.note }}</td>
+                    </tr>
+                    {% endif %}
+                {% endfor %}
+            </tbody>
+        </table>
+    </body>
+{% endblock %}
